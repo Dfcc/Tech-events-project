@@ -1,10 +1,8 @@
 .mainLogo{
     height: 6rem;
 }
-.navbar {
-    display: flex;
-    padding: 0.5rem;
-    gap: 1rem;
+.navbar-brand { 
+    margin-left: 1rem;
 }
 .title1{
     font-size: 4rem;
