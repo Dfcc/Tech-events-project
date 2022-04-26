@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="components/head :: head">
+  <meta charset="UTF-8">
+  <title>Template</title>
+</head>
+<body>
+<header th:insert="components/headerNavbar :: header_navbar"></header>
+<div class="container">
+<form th:insert="components/eventForm :: eventForm"></form>
+</div>
+<footer th:insert="components/footer:: footer_scripts"></footer>
+</body>
+</html>
