@@ -12,16 +12,16 @@ public class Event implements Serializable {
     private String title;
     private  String description;
     private  String image;
-    private Integer maxPeople =25;
-    private Integer Date;
+    private Integer max_people =25;
+    private String Date;
 
 
     public Integer getMaxPeople() {
-        return maxPeople;
+        return max_people;
     }
 
     public void setMaxPeople(Integer maxPeople) {
-        this.maxPeople = maxPeople;
+        this.max_people = max_people;
     }
 
     public Long getId() {
@@ -57,11 +57,11 @@ public class Event implements Serializable {
     }
 
 
-    public Integer getDate() {
+    public String getDate() {
         return Date;
     }
 
-    public void setDate(Integer date) {
+    public void setDate(String date) {
         Date = date;
     }
 
@@ -73,7 +73,7 @@ public class Event implements Serializable {
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", image='" + image + '\'' +
-                ", maxPeople=" + maxPeople +
+                ", maxPeople=" + max_people +
                 ", Date=" + Date +
                 '}';
     }
