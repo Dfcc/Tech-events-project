@@ -5,10 +5,13 @@
   <title>Template</title>
 </head>
 <body>
-<header th:insert="components/headerNavbar :: header_navbar"></header>
+<header th:replace="components/headerNavbar :: header_navbar"></header>
 <div class="container">
-<form th:insert="components/eventForm :: eventForm"></form>
+<form class="needs-validation"th:object="${event}" th:action="@{/views/events/save}" method="post">
+<div th:insert="components/eventForm:: event_form">
 </div>
-<footer th:insert="components/footer:: footer_scripts"></footer>
+</form>
+</div>
+<footer th:replace="/template/template :: footer"></footer>
 </body>
 </html>
