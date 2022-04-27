@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/components/head :: head">
+<head th:replace="/template/template :: head">
 </head>
 <body>
 <header th:replace="/components/headerNavbar :: header_navbar"></header>
 
-<h1>Springboot fragments thymeleaf</h1>
+<div th:replace="/components/slideShow :: carousel" ></div>
 
 <footer th:replace="/template/template :: footer"></footer>
 
