@@ -1,0 +1,37 @@
+<div th:fragment="event_form">
+<h2 th:text ="${titulo}"></h2>
+<div class="form-row">
+    <div class="col-md-4 mb-3">
+        <label for="title">Titulo</label>
+        <input type="text"  th:field="*{title}"class="form-control" id="title" placeholder="titulo" required>
+        <div class="valid-tooltip">
+            Looks good!
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label for="description">Descripción</label>
+        <textarea type="text" th:field="*{description}"class="form-control" id="description" placeholder="descripcion"  required>
+            </textarea>
+        <div class="valid-tooltip">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <label for="image">Imagen</label>
+        <input type="text" th:field="*{image}"class="form-control" id="image" placeholder="Imagen" required>
+        <div class="invalid-tooltip">
+            Por favor copia la direccion de la imagen de internet
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-3">
+        <label for="date">fecha</label>
+        <input type="date" th:field="*{date}"class="form-control" id="date" placeholder="fecha" required>
+        <div class="invalid-tooltip">
+            Por favor añade una flecha
+        </div>
+    </div>
+
+<button class="btn btn-primary" type="submit">Crear Evento</button>
+    </div>
