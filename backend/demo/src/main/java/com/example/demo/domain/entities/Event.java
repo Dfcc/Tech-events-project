@@ -76,5 +76,5 @@ public class Event implements Serializable {
                 ", maxPeople=" + max_people +
                 ", Date=" + Date +
                 '}';
-    }
+}
 }
