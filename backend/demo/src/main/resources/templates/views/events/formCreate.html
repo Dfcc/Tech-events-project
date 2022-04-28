@@ -8,7 +8,7 @@
 <header th:replace="components/headerNavbar :: header_navbar"></header>
 <div class="container">
 <form class="needs-validation"th:object="${event}" th:action="@{/views/events/save}" method="post">
-<div th:insert="components/eventForm:: event_form">
+  <div th:insert="components/eventForm:: event_form">
 </div>
 </form>
 </div>

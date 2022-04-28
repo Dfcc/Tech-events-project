@@ -2,21 +2,23 @@
 <h2 th:text ="${titulo}"></h2>
 <div class="form-row">
     <div class="col-md-4 mb-3">
+        <input type="hidden" name="id" th:field="*{id}" />
         <label for="title">Titulo</label>
-        <input type="text"  th:field="*{title}"class="form-control" id="title" placeholder="titulo" required>
+
+        <input type="text" th:field="*{title}" class="form-control" id="title" placeholder="titulo" required>
         <div class="valid-tooltip">
             Looks good!
         </div>
-    </div>
 
-    <div class="col-md-4 mb-3">
         <label for="description">Descripción</label>
-        <textarea type="text" th:field="*{description}"class="form-control" id="description" placeholder="descripcion"  required>
+        <textarea type="text" th:field="*{description}" class="form-control" id="description" placeholder="descripcion"
+                  required>
             </textarea>
         <div class="valid-tooltip">
             Looks good!
         </div>
     </div>
+
     <div class="col-md-4 mb-3">
         <label for="image">Imagen</label>
         <input type="text" th:field="*{image}"class="form-control" id="image" placeholder="Imagen" required>

@@ -13,6 +13,17 @@
 
 <div class="card-group">
     <div class="card" th:each="ev:${eventos}">
+        <button>
+            <a class="btn btn-success btn-sm" th:href="@{/views/events/admin/edit/} + ${ev.id} " title="Edit Event">
+                <i class="bi bi-pencil-square"></i>
+            </a>
+        </button>
+        <button >
+            <a class="btn btn-danger btn-sm" th:href="@{/views/events/admin/delete/}+ ${ev.id}" title="DeleteEvent">
+                <i class="bi bi-trash-fill"></i>ss
+            </a>
+        </button>
+
        <!-- <p th:text="${#temporals.format(ev.date, 'dd-MMMM-yyyy', new java.util.Locale('en', 'EN'))}">
         <p th:text="${#temporals.format(ev.date, 'dd-MMMM-yyyy', new java.util.Locale('es', 'ES'))}">
         <p th:text="${#temporals.format(localDateTime, 'dd-MMMM-yyyy', new java.util.Locale('fr', 'FR'))}">
@@ -23,7 +34,9 @@
             <h5 class="card-title" th:text="${ev.title}"></h5>
             <p class="card-text" th:text="${ev.description}"></p>
             <p class="card-text" th:text="${ev.maxPeople}"></p>
+
         </div>
+
         </div>
         </div>
 

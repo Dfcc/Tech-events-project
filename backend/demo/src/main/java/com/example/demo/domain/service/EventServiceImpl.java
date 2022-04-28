@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
-
 @Service
 public class EventServiceImpl implements IEventService {
     @Autowired
@@ -19,17 +17,19 @@ public class EventServiceImpl implements IEventService {
 
     @Override
     public void save(Event event) {
-       eventRepository.save(event);
+        eventRepository.save(event);
+
     }
 
     @Override
-    public Optional<Event> findById(Long id) {
-      return Optional.ofNullable(eventRepository.findById(id).orElse(null));
+    public Event findById(Long id) {
+
+        return eventRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void delete(Long id) {
+    public Event delete(Long id) {
         eventRepository.deleteById(id);
-
+        return null;
     }
 }
