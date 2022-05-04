@@ -1,13 +1,15 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/template/template :: head">
+
 </head>
 <body>
 <header th:replace="/components/headerNavbar :: header_navbar"></header>
 
 <div th:replace="/components/slideShow :: carousel" ></div>
+<div th:replace="/components/eventsList:: events_list" ></div>
 
 <footer th:replace="/template/template :: footer"></footer>
-
+<script src="/static/js/app.js" th:src="@{/js/app.js}"></script>
 </body>
 </html>
