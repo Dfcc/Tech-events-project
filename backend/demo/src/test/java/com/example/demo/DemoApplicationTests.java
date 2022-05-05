@@ -33,17 +33,17 @@ class DemoApplicationTests {
  //////////el deleteALL() no esta importado parece
     @Test
     void contextLoads() {
-    }*/
+    }
 
-    //@Test
-    //void allowsToEventList() throws Exception{
-        //Controller
-        //given
-        //when I send a post request to /events
-        //mockMvc.perform(post("/list"));
+    @Test
+    void allowsToEventList() throws Exception{
+        Controller
+        given
+        when I send a post request to /events
+        mockMvc.perform(post("/list"));
 
 
 
         //then I get 200 status code
-    //}
+    }*/
 
