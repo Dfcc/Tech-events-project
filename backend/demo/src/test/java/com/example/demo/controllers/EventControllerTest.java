@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -28,37 +30,40 @@ class EventControllerTest {
     void setUp() {
         System.out.println("Iniciando test");
     }
-
+/*
     @Test
     void eventList() {
 
-        Event mockEvent = new Event();
-        mockEvent.setId((long)1);
-        mockEvent.setTitle("titulo");
-        mockEvent.setImage("{"+"\"coverImage\":\"https://www.xmigrations.com/wp-content/uploads/2020/06/Free-Tour-Barcelona-Nocturna1IMG.-Jorge-Franganillo.jpg\"}");
-        mockEvent.setDescription("Paseos nocturnos por la ciudad" );
-        mockEvent.setDate("10/07/2022");
-    }
+        List<Event> mockEvents = List.of(
+                new Event("Barcelona",
+                        "https://www.xmigrations.com/wp-content/uploads/2020/06/Free-Tour-Barcelona-Nocturna1IMG.-Jorge-Franganillo.jpg",
+                        "Paseos nocturnos por la ciudad"
+                        );
+                eventRepositoryMock.findAll(mockEvents);
+        mockEvents.setId((long)1);
+        mockEvents.setTitle("Barcelona");
+        mockEvents.setImage("{"+"\"coverImage\":\"https://www.xmigrations.com/wp-content/uploads/2020/06/Free-Tour-Barcelona-Nocturna1IMG.-Jorge-Franganillo.jpg\"}");
+        mockEvents.setDescription("Paseos nocturnos por la ciudad" );
+        mockEvents.setDate("10/07/2022");
 
+        Mockito.when(eventRepositoryMock.findAll()).thenReturn(mockEvents);
+    }*/
+/*
     @Test
     void formCreate() {
     }
-
+*/
     @Test
     void saveEvent() {
+        List<Event> mockEvents = List.of(
+                new Event("Barcelona",
+                        "https://www.xmigrations.com/wp-content/uploads/2020/06/Free-Tour-Barcelona-Nocturna1IMG.-Jorge-Franganillo.jpg",
+                        "Paseos nocturnos por la ciudad.")
+        );
+        eventRepositoryMock.saveAll(mockEvents);
     }
 
-    @Test
-    void testEventList() {
-    }
 
-    @Test
-    void testFormCreate() {
-    }
-
-    @Test
-    void testSaveEvent() {
-    }
     @AfterEach
     void tearDown() {
         System.out.println("Test finalizado");

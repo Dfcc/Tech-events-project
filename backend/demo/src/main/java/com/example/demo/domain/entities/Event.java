@@ -15,14 +15,13 @@ public class Event implements Serializable {
     private Integer max_people =25;
     private String Date;
 
-
-    public Integer getMaxPeople() {
-        return max_people;
+    public Event(String title, String url, String paseos_nocturnos_por_la_ciudad) {
     }
 
-    public void setMaxPeople(Integer maxPeople) {
-        this.max_people = max_people;
-    }
+
+    public Integer getMaxPeople() { return max_people; }
+
+    public void setMaxPeople(Integer maxPeople) { this.max_people = max_people; }
 
     public Long getId() {
         return id;

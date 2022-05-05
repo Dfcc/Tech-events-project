@@ -23,16 +23,17 @@ class DemoApplicationTests {
 
     @Autowired
     IEventService eventService;
+    }
 
 
-    @BeforeEach
+   /* @BeforeEach
     void setUp() {
         eventService.deleteAll();
     }
  //////////el deleteALL() no esta importado parece
     @Test
     void contextLoads() {
-    }
+    }*/
 
     //@Test
     //void allowsToEventList() throws Exception{
@@ -45,18 +46,4 @@ class DemoApplicationTests {
 
         //then I get 200 status code
     //}
-        @Test
-        void allowsToAddANewMovie() throws Exception {
-            mockMvc.perform(post("/movies")
-                            .contentType(MediaType.APPLICATION_JSON)
-                            .content("Event{" +
-                                    "id=" + id +
-                                    ", title='" + title + '\'' +
-                                    ", description='" + description + '\'' +
-                                    ", image='" + image + '\'' +
-                                    ", maxPeople=" + max_people +
-                                    ", Date=" + Date +
-                                    '}')
-                    ).andExpect(status().isOk())
-                    .andDo(print());
-}
+
