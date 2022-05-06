@@ -1,5 +1,8 @@
 package com.example.demo.domain.entities;
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
 
 
 @Entity
@@ -13,6 +16,12 @@ public class User {
     private Long password;
     private Boolean isAdmin=false;
 
+    @ManyToMany
+    @JoinTable(
+            name = "users_events",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "event_id"))
+    Set<Event> events;
 
 
     public Long getId() {

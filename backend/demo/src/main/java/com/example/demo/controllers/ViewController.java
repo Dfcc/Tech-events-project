@@ -14,6 +14,7 @@ import java.util.List;
 public class ViewController {
     @Autowired
     private IEventService eventService;
+
     @GetMapping({"/","/home", "/index"})
     public String eventSlider(Model model){
        List<Event> eventSlider = eventService.eventList();

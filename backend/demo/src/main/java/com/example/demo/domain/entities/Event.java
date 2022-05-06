@@ -1,7 +1,12 @@
 package com.example.demo.domain.entities;
 
 import javax.persistence.*;
+
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+import java.sql.Date;
+
 
 @Entity
 @Table(name="events")
@@ -15,6 +20,8 @@ public class Event implements Serializable {
     private Integer max_people =25;
     private String Date;
 
+    @ManyToMany(mappedBy = "events")
+    Set<User> users;
 
     public Integer getMaxPeople() {
         return max_people;

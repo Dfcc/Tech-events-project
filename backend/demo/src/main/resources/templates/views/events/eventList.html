@@ -13,16 +13,6 @@
 
 <div class="card-group">
     <div class="card" th:each="ev:${eventos}">
-        <button>
-            <a class="btn btn-success btn-sm" th:href="@{/views/events/admin/edit/} + ${ev.id} " title="Edit Event">
-                <i class="bi bi-pencil-square"></i>
-            </a>
-        </button>
-        <button >
-            <a class="btn btn-danger btn-sm" th:href="@{/views/events/admin/delete/}+ ${ev.id}" title="DeleteEvent">
-                <i class="bi bi-trash-fill"></i>ss
-            </a>
-        </button>
 
        <!-- <p th:text="${#temporals.format(ev.date, 'dd-MMMM-yyyy', new java.util.Locale('en', 'EN'))}">
         <p th:text="${#temporals.format(ev.date, 'dd-MMMM-yyyy', new java.util.Locale('es', 'ES'))}">
@@ -39,7 +29,6 @@
 
         </div>
         </div>
-
 <footer th:replace="/template/template :: footer"></footer>
 </body>
 </html>

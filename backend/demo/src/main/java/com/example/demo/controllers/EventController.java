@@ -29,6 +29,14 @@ public class EventController {
         return "/views/events/eventList";
     }
 
+    @GetMapping("/listadmin")
+    public String eventListAdmin(Model model) {
+        List<Event> eventList = eventService.eventList();
+        model.addAttribute("titulo", "Events List No order");
+        model.addAttribute("eventos", eventList);
+        return "/views/events/eventListAdmin";
+    }
+
     @GetMapping("/admin/create")
     @DateTimeFormat(pattern ="dd-MM-yyyy")
     public String formCreate(Model model) {
@@ -61,5 +69,7 @@ public class EventController {
         return "redirect:/views/events/list";
 
     }
+
+
 
 }
