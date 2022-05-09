@@ -17,6 +17,7 @@ public class Event implements Serializable {
     private  String image;
     private Integer max_people =25;
     private String Date;
+    private boolean featured;
 
     public Integer getMaxPeople() {
         return max_people;
@@ -67,6 +68,13 @@ public class Event implements Serializable {
         Date = date;
     }
 
+    public boolean isFeatured() {
+        return featured;
+    }
+    public void setFeatured(boolean featured) {
+        this.featured = featured;
+    }
+
 
     @java.lang.Override
     public java.lang.String toString() {
@@ -77,7 +85,8 @@ public class Event implements Serializable {
                 ", image='" + image + '\'' +
                 ", maxPeople=" + max_people +
                 ", Date=" + Date +
-                '}';
+                ", featured="+
+        '}';
     }
 
 

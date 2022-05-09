@@ -16,13 +16,15 @@ public class ViewController {
     private IEventService eventService;
     @GetMapping({"/","/home", "/index"})
     public String eventSlider(Model model){
-        List<Event> eventSlider = eventService.eventList();
+        List<Event> eventSlider = eventService.listHighlights();
         List<Event> eventList = eventService.eventList();
         model.addAttribute("titulo", "Events List No order");
         model.addAttribute("slider", eventSlider);
         model.addAttribute("titulo", "List No order");
         model.addAttribute("list", eventList);
 
+
         return "index";
     }
 }
+

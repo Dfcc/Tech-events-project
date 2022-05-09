@@ -15,6 +15,11 @@ public class EventServiceImpl implements IEventService {
         return (List<Event>) eventRepository.findAll();
     }
 
+    public List<Event> listHighlights(){
+        return (List<Event>) eventRepository.findByFeaturedIsTrue();
+    }
+
+
     @Override
     public void save(Event event) {
         eventRepository.save(event);
