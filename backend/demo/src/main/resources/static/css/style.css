@@ -1,7 +1,13 @@
 .carousel-inner .carousel-item {
     transition: transform 1s ease;
 }
-
+body{
+    background: rgb(155,104,180);
+    background: -moz-linear-gradient(51deg, rgba(155,104,180,1) 0%, rgba(121,82,179,1) 35%, rgba(236,25,177,1) 100%);
+    background: -webkit-linear-gradient(51deg, rgba(155,104,180,1) 0%, rgba(121,82,179,1) 35%, rgba(236,25,177,1) 100%);
+    background: linear-gradient(51deg, rgba(155,104,180,1) 0%, rgba(121,82,179,1) 35%, rgba(236,25,177,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9b68b4",endColorstr="#ec19b1",GradientType=1);
+}
 .h1-carousel {
     width: 100%;
     text-align: center;
