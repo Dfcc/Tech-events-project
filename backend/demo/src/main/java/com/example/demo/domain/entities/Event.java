@@ -3,6 +3,7 @@ package com.example.demo.domain.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.sql.Date;
 
@@ -17,6 +18,36 @@ public class Event implements Serializable {
     private  String image;
     private Integer max_people =25;
     private String Date;
+
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
+    @JoinTable(name = "events_user",
+            joinColumns = { @JoinColumn(name = "event_id") },
+            inverseJoinColumns = { @JoinColumn(name = "user_id") })
+    private Set<User> users = new HashSet<>();
+//
+//    @ManyToMany
+//    @JoinTable(name = "events_users",
+//            joinColumns = @JoinColumn(name = "event_id", referencedColumnName = "users_id"))
+//    private Set<User> users = new LinkedHashSet<>();
+    // Event event = new Event();
+    // event.getNombre()
+    // event.getUsers()
+    // Le pasamos un nuevo usuario
+    // Actualizar este dato con el repository
+    // eventRepository.save(event)
+    // many to many save spring boot
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
 
     public Integer getMaxPeople() {
         return max_people;

@@ -8,9 +8,32 @@
 
 <div th:replace="/components/slideShow :: carousel" ></div>
 <div th:replace="/components/eventListIndex:: events_list_index" ></div>
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-right"> <i class="fa fa-close close" data-dismiss="modal"></i> </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="text-center mt-2"> <img src="https://i.imgur.com/zZUiqsU.png" width="200"> </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-white mt-4">
+                            <span class="intro-1">This is fake Data</span>
+                            <div class="mt-2"> <span class="intro-2">Gain access to analytic tools, desktop apps, templates, read-through, features, and autp-translate all for the price of a pro subscription</span> </div>
+                            <div class="mt-4 mb-5"> <button class="btn btn-primary">Import my data <i class="fa fa-cloud-download"></i></button> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <footer th:replace="/components/footer :: footer"></footer>
 <script src="/static/js/app.js" th:src="@{/js/app.js}"></script>
+<script src="/static/js/bootstrap-min.js" th:src="@{/js/bootstrap-min.js}"></script>
+<script src="/static/js/popper-min.js" th:src="@{/js/popper-min.js}"></script>
 </body>
 </html>

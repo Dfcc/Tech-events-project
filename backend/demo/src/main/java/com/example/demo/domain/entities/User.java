@@ -1,5 +1,7 @@
 package com.example.demo.domain.entities;
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -12,7 +14,16 @@ public class User {
 
     private Long password;
     private Boolean isAdmin=false;
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            },
+            mappedBy = "users")
 
+    private Set<Event> events = new HashSet<>();
+    public User(Long userId) {
+    }
 
 
     public Long getId() {

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application - Bootstrap Modal</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+<body>
+<!-- Navigation -->
+<header th:replace="/components/headerNavbar :: header_navbar"></header>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Launch simple modal
+            </button>
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
+                Dynamic modal 1
+            </button>
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
+                Dynamic modal 2
+            </button>
+
+            <th:block th:replace="/components/_modals :: modal('exampleModal')">modal</th:block>
+            <th:block th:replace="_modals :: modal('exampleModal1')">modal</th:block>
+            <th:block th:replace="_modals :: modal('exampleModal2')">modal</th:block>
+        </div>
+    </div>
+</div>
+
+
+
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
+<script>
+    $('#exampleModal1').on('show.bs.modal', function () {
+        $.get("/modals/modal1", function (data) {
+            $('#exampleModal1').find('.modal-body').html(data);
+        })
+    });
+
+    $('#exampleModal2').on('show.bs.modal', function () {
+        var name = prompt("Please enter your name", "John Doe");
+        $.get("/modals/modal2?name=" + name, function (data) {
+            $('#exampleModal2').find('.modal-body').html(data);
+        })
+    })
+</script>
+
+</body>
+</html>

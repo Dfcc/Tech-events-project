@@ -40,3 +40,34 @@
     bottom: -90vh;
     opacity: 1;
 }
+.modal-body {
+    background-color: #5165ff;
+    border-color: #5165ff;
+}
+
+.intro-1 {
+    font-size: 20px
+}
+
+.close {
+    color: #fff
+}
+
+.close:hover {
+    color: #fff
+}
+
+.intro-2 {
+    font-size: 13px
+}
+
+.btn-primary {
+    color: #5165ff;
+    background-color: #fffaff;
+    border-color: #fffaff;
+    padding: 12px;
+    font-weight: 700;
+    border-radius: 41px;
+    padding-right: 20px;
+    padding-left: 20px;
+}

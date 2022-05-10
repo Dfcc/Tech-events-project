@@ -15,6 +15,8 @@ public class EventServiceImpl implements IEventService {
         return (List<Event>) eventRepository.findAll();
     }
 
+
+
     @Override
     public void save(Event event) {
         eventRepository.save(event);
@@ -31,5 +33,10 @@ public class EventServiceImpl implements IEventService {
     public Event delete(Long id) {
         eventRepository.deleteById(id);
         return null;
+    }
+
+    @Override
+    public boolean existsById(Long eventId) {
+        return false;
     }
 }

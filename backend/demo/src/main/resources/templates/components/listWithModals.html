@@ -1,0 +1,49 @@
+<div th:each="user : ${listUsers}" class="card mb-3">
+  <div class="row g-0">
+    <!--  <div class="col-md-3">
+        <img src="/images/noimage2.png" alt="...">
+    </div>-->
+    <div class="col-md-12">
+      <div class="card-body">
+        <h3 class="card-title"
+            th:text="${user.name}">Name</h3>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-secondary btn-sm"
+                data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <i class="fas fa-address-card"></i> More
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1"
+             aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div
+                  class="modal-dialog modal-dialog-scrollable modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"
+                    th:text="${user.name}">Modal title</h5>
+                <button type="button" class="btn-close"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+
+                                            <span class="d-inline"
+                                                  th:text="${user.address}"></span> | <span
+                      th:text="${user.phoneNumber}"></span> | <span
+                      th:text="${user.email}">email</span>
+              </div>
+
+              <p class="card-body"
+                 th:text="${user.description}"></p>
+            </div>
+            <div class="modal-footer"></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
