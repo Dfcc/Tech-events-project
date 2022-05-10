@@ -6,6 +6,9 @@
 
 </head>
 <body>
+<div sec:authorize="isAuthenticated()">
+    <h1>Hello <span sec:authentication="name"></span></h1>
+</div>
 
 <header th:replace="components/headerNavbar :: header_navbar">
 <h1 th:text ="${titulo}"></h1>

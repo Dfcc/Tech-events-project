@@ -3,6 +3,9 @@
 <head th:replace="/templates/template/template :: head">
 </head>
 <body>
+<div sec:authorize="isAuthenticated()">
+    <h1>Hello <span sec:authentication="name"></span></h1>
+</div>
 <header th:replace="/templates/template/template :: header"></header>
 
 

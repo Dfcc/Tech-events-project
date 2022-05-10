@@ -16,6 +16,7 @@ import java.util.List;
 public class UserController {
     @Autowired
     private IUserService userService;
+
     @GetMapping("/")
     public String allUsers(Model model){
         List <User> usersList = userService.usersList();

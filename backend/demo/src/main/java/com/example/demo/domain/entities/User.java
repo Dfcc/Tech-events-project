@@ -2,18 +2,17 @@ package com.example.demo.domain.entities;
 import javax.persistence.*;
 
 
+
 @Entity
 @Table(name="users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String email;
-
-    private Long password;
-    private Boolean isAdmin=false;
-
-
+    private String username;
+    private String password;
+    private boolean active;
+    private  String roles;
 
     public Long getId() {
         return id;
@@ -23,30 +22,35 @@ public class User {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public Long getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(Long password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public Boolean getAdmin() {
-        return isAdmin;
+    public boolean isActive() {
+        return active;
     }
 
-    public void setAdmin(Boolean admin) {
-        isAdmin = admin;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
+    public String getRoles() {
+        return roles;
+    }
 
-
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
 }
