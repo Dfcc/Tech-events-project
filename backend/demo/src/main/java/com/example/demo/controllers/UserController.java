@@ -33,21 +33,23 @@ public class UserController {
 
 
 
-    @GetMapping("/")
-    public String allUsers(Model model){
+    @GetMapping("/home")
+    public String allUsers(Model model,@PathVariable(value = "eventId") Long eventId){
+        List <User> eventsUserList = userRepository.findUsersByEventsId(eventId);
         List <User> usersList = userService.usersList();
-        model.addAttribute("titulo", "lista de usuarios");
+        model.addAttribute("titulo", "Pagina Home de Usuario");
         model.addAttribute("users", usersList);
+        model.addAttribute("userEvents", eventsUserList);
         return "/views/users/usersList";
     }
-    @GetMapping("/events")
-    public String allEventsUser(Model model,@PathVariable(value = "eventId") Long eventId){
-        List <User> eventsUserList = userRepository.findUsersByEventsId(eventId);
-        model.addAttribute("titulo", "lista de Eventos del usuario");
-        model.addAttribute("userEvents", eventsUserList);
-        return "/views/events/modal_test";
-    }
-
-
 
 }
+    // Event event = new Event();
+    // event.getNombre()
+    // event.getUsers()
+    // Le pasamos un nuevo usuario
+    // Actualizar este dato con el repository
+    // eventRepository.save(event)
+    // many to many save spring boot
+
+

@@ -28,18 +28,9 @@ public class Event implements Serializable {
             joinColumns = { @JoinColumn(name = "event_id") },
             inverseJoinColumns = { @JoinColumn(name = "user_id") })
     private Set<User> users = new HashSet<>();
-//
-//    @ManyToMany
-//    @JoinTable(name = "events_users",
-//            joinColumns = @JoinColumn(name = "event_id", referencedColumnName = "users_id"))
-//    private Set<User> users = new LinkedHashSet<>();
-    // Event event = new Event();
-    // event.getNombre()
-    // event.getUsers()
-    // Le pasamos un nuevo usuario
-    // Actualizar este dato con el repository
-    // eventRepository.save(event)
-    // many to many save spring boot
+
+
+
 
     public Set<User> getUsers() {
         return users;
