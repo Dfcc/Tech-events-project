@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface EventRepository extends CrudRepository<Event, Long> {
+public interface EventRepository extends JpaRepository<Event, Long> {
     public List<Event> findByFeaturedIsTrue();
 
 }

@@ -16,8 +16,19 @@ public class Event implements Serializable {
     private  String description;
     private  String image;
     private Integer max_people =25;
-    private String Date;
+    private String date;
     private boolean featured;
+
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+            CascadeType.PERSIST, CascadeType.MERGE
+            })
+
+    @JoinTable(name = "events_user",
+    joinColumns = {@JoinColumn(name = "event_id")},
+    inverseJoinColumns = {@JoinColumn(name = "user_id")})
+
+    private Set<User> users =new HashSet<>();
 
     public Integer getMaxPeople() {
         return max_people;
@@ -61,16 +72,32 @@ public class Event implements Serializable {
 
 
     public String getDate() {
-        return Date;
+        return date;
     }
 
     public void setDate(String date) {
-        Date = date;
+        date = date;
     }
 
     public boolean isFeatured() {
         return featured;
     }
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public Integer getMax_people() {
+        return max_people;
+    }
+
+    public void setMax_people(Integer max_people) {
+        this.max_people = max_people;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
     public void setFeatured(boolean featured) {
         this.featured = featured;
     }
@@ -84,7 +111,7 @@ public class Event implements Serializable {
                 ", description='" + description + '\'' +
                 ", image='" + image + '\'' +
                 ", maxPeople=" + max_people +
-                ", Date=" + Date +
+                ", Date=" + date +
                 ", featured="+
         '}';
     }

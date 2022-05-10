@@ -5,11 +5,11 @@
 </head>
 <body>
 <header th:replace="/components/headerNavbar :: header_navbar"></header>
-
+<main>
 <div th:replace="/components/slideShow :: carousel" ></div>
 <div th:replace="/components/eventListIndex:: events_list_index" ></div>
 
-
+</main>
 <footer th:replace="/components/footer :: footer"></footer>
 <script src="/static/js/app.js" th:src="@{/js/app.js}"></script>
 </body>

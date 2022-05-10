@@ -5,7 +5,7 @@
          <p th:text="${#temporals.format(ev.date, 'dd-MMMM-yyyy', new java.util.Locale('es', 'ES'))}">
          <p th:text="${#temporals.format(localDateTime, 'dd-MMMM-yyyy', new java.util.Locale('fr', 'FR'))}">
          -->
-        <h3  th:text="${ev.Date}"></h3>
+        <h3  th:text="${ev.date}"></h3>
         <img class="card-img-top" th:src="@{${ev.image}}" th:alt="${ev.title}">
         <div class="card-body">
             <h5 class="card-title" th:text="${ev.title}"></h5>
@@ -16,5 +16,30 @@
 
         </div>
 
+
     </div>
+    <!-- events pagination -->
+    <nav aria-label="Pagination" th:if="${events.totalPages gt 0}">
+        <ul class="pagination justify-content-center font-weight-bold">
+            <li class="page-item" th:classappend="${events.number eq 0} ? 'disabled'">
+                <a class="page-link"
+                   th:href="@{/?page={id}(id=${events.number lt 2 ? 1 : events.number})}"
+                   aria-label="Previous" title="Previous Page" data-toggle="tooltip">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item" th:classappend="${i eq events.number + 1} ? 'active'"
+                th:each="i : ${#numbers.sequence( 1, events.totalPages, 1)}">
+                <a class="page-link" th:href="@{/?page={id}(id=${i})}" th:text="${i}"
+                   th:title="${'Page '+ i}" data-toggle="tooltip"></a>
+            </li>
+            <li class="page-item" th:classappend="${events.number + 1 eq events.totalPages} ? 'disabled'">
+                <a class="page-link"
+                   th:href="@{/?page={id}(id=${events.number + 2})}"
+                   aria-label="Next" title="Next Page" data-toggle="tooltip">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>

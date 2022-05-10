@@ -3,6 +3,7 @@ package com.example.demo.domain.service;
 import com.example.demo.domain.entities.Event;
 import com.example.demo.repositories.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public class EventServiceImpl implements IEventService {
     private EventRepository eventRepository;
     @Override
     public List<Event> eventList() {
-        return (List<Event>) eventRepository.findAll();
+        return (List<Event>) eventRepository.findAll(Sort.by(Sort.Direction.DESC, "date"));
     }
 
     public List<Event> listHighlights(){

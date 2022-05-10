@@ -1,7 +1,7 @@
 .carousel-inner .carousel-item {
     transition: transform 1s ease;
 }
-body{
+main{
     background: rgb(155,104,180);
     background: -moz-linear-gradient(51deg, rgba(155,104,180,1) 0%, rgba(121,82,179,1) 35%, rgba(236,25,177,1) 100%);
     background: -webkit-linear-gradient(51deg, rgba(155,104,180,1) 0%, rgba(121,82,179,1) 35%, rgba(236,25,177,1) 100%);
