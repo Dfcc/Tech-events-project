@@ -16,7 +16,7 @@ public class Event implements Serializable {
     private  String description;
     private  String image;
     private Integer max_people =25;
-    private String date;
+    private Date date;
     private boolean featured;
 
     @ManyToMany(fetch = FetchType.LAZY,
@@ -71,11 +71,11 @@ public class Event implements Serializable {
     }
 
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         date = date;
     }
 
