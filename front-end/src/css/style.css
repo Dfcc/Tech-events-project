@@ -1,3 +1,4 @@
+
 .mainLogo{
     height: 6rem;
 }
@@ -42,4 +43,10 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     -webkit-text-stroke: 0.1rem;
     font-size: 1.5rem;
+
+h1 {
+color: rgba(233, 38, 24, 0.904);
+font-size: xx-large;
+-webkit-text-stroke: 0.1rem;
+
 }
