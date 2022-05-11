@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-    <title>Error400</title>
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/template/template :: head">
 </head>
 <body>
+<header th:replace="/components/headerNavbar :: header_navbar"></header>
+<div th:replace="components/alerts :: alert"></div>
+<div class="container text-center py-3">
+    <div class="panel" bg-light>
+        <div class="panel-heading">
+            <h3 class="panel-title text-dangers">
+                <span th:text="${error}"></span>-   <span th:text="${status}"></span>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <img th:src="@{/images/error-icon.png}" width="48" height="48">
+            <br>
+            <h4> no es una buena solicitud!!!</h4>
+            <br>
+            <button class="btn btn-success" onclick="goBack()">&laquo; Go to index</button>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="/template/template :: footer"></footer>
+<script>
+    function goBack(){
+        window.history.back();
+    }
+</script>
 
 </body>
 </html>

@@ -8,9 +8,9 @@
 
     <div class="row">
         <h1 th:text="${titulo}"></h1>
-        <ul class="list-group" th:each="user:${usersList}">
-            <li class="list-group-item" th:text="${user.id}"></li>
-            <li class="list-group-item" th:text="${user.name}"></li>
+        <ul class="list-group" th:each="event:${userEvents}">
+            <li class="list-group-item" th:text="${event.id}"></li>
+            <li class="list-group-item" th:text="${event.title}"></li>
         </ul>
 
     </div>

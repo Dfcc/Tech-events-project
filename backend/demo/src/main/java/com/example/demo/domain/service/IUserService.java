@@ -12,4 +12,6 @@ public interface IUserService {
     public void saveUser(User user);
     public User userFindById(Long id);
     public void deleteUser(Long id);
+
+    public User findByUsername(String username);
 }

@@ -16,7 +16,9 @@ public class Event implements Serializable {
     private String title;
     private  String description;
     private  String image;
-    private Integer max_people =25;
+    private int max_people =25;
+
+    private int signed;
     private String Date;
 
     @ManyToMany(fetch = FetchType.LAZY,
@@ -40,11 +42,11 @@ public class Event implements Serializable {
         this.users = users;
     }
 
-    public Integer getMaxPeople() {
+    public int getMaxPeople() {
         return max_people;
     }
 
-    public void setMaxPeople(Integer maxPeople) {
+    public void setMaxPeople(int max_people) {
         this.max_people = max_people;
     }
 
@@ -80,7 +82,13 @@ public class Event implements Serializable {
         this.image = image;
     }
 
+    public int getSigned() {
+        return signed;
+    }
 
+    public void setSigned(int signed) {
+        this.signed = signed;
+    }
     public String getDate() {
         return Date;
     }
@@ -97,7 +105,7 @@ public class Event implements Serializable {
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", image='" + image + '\'' +
-                ", maxPeople=" + max_people +
+                ", max_people=" + max_people +
                 ", Date=" + Date +
                 '}';
     }

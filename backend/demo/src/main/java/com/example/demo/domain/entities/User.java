@@ -16,6 +16,7 @@ public class User {
     private String roles;
 
     private Boolean isAdmin=false;
+
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {
                     CascadeType.PERSIST,
@@ -23,9 +24,10 @@ public class User {
             },
             mappedBy = "users")
 
-    private Set<Event> events = new HashSet<>();
-    public User(Long userId) {
+    private Set<Event> events;
+    public User() {
     }
+
 
     public Long getId() {
         return id;
@@ -62,9 +64,40 @@ public class User {
     public String getRoles() {
         return roles;
     }
+    public Set<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(Set<Event> events) {
+        this.events = events;
+    }
 
     public void setRoles(String roles) {
         this.roles = roles;
     }
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+               ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", isAdmin=" + isAdmin +
+                ", events=" + events +
+                '}';
+    }
+    public User(Long id,  String username, String password, Boolean isAdmin, Set<Event> events) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.isAdmin = isAdmin;
+        this.events = events;
+    }
+
+
+    public User(Long id) {
+        super();
+    }
+
+
 }
 

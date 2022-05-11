@@ -11,9 +11,22 @@
             <h5 class="card-title" th:text="${ev.title}"></h5>
             <p class="card-text" th:text="${ev.description}"></p>
             <p class="card-text" th:text="${ev.maxPeople}"></p>
+           </div>
+<!--            <div class="card-read-more signup">-->
+<!--                &lt;!&ndash;-->
+<!--                <a th:href="@{/views/users/userEventAdd/}+${eventsList.id}" class="btn btn-link btn-block">-->
+<!--                    Apuntate!-->
+<!--                </a>-->
+<!--                &ndash;&gt;-->
+<!--                <a th:if="${ev.max_people}>${ev.signed}" th:href="@{/users/userEventAdd/}+${ev.id}" class="btn btn-link btn-block">-->
+<!--                    Apuntate!-->
+<!--                </a>-->
+<!--                <a th:unless="${ev.max_people}>${ev.signed}" class="btn btn-link btn-block text-danger">-->
+<!--                    Lleno!-->
+<!--                </a>-->
+<!--            </div>-->
 
-        </div>
-        <button type="button" class="btn btn-primary launch" data-toggle="modal" data-target="#staticBackdrop"> <i class="fa fa-info"></i> Get information
-        </button>
+        <a th:href="@{/users/userEventAdd/}+${ev.id}" type="button" class="btn btn-primary launch" > <i class="fa fa-info"></i> Get information
+        </a>
     </div>
 </div>

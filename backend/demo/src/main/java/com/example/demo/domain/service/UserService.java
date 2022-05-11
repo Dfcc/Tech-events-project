@@ -3,13 +3,17 @@ package com.example.demo.domain.service;
 import com.example.demo.domain.entities.User;
 import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class UserService implements IUserService {
+
+    BCryptPasswordEncoder passwordEncoder;
     @Autowired
     private UserRepository userRepository;
+
     @Override
     public List<User> usersList() {
         return (List<User>) userRepository.findAll();
@@ -19,7 +23,8 @@ public class UserService implements IUserService {
 
     @Override
     public void saveUser(User user) {
-    userRepository.save(user);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
     }
 
     @Override
@@ -32,5 +37,9 @@ public class UserService implements IUserService {
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
 
+    }
+    @Override
+    public User findByUsername(String username){
+        return userRepository.findByUsername(username);
     }
 }
