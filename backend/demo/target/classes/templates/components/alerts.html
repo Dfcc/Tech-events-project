@@ -1,0 +1,18 @@
+<div th:fragment="alert">
+    <div class="alert alert-success alert-dismissible" th:if="${success!= null}">
+        <label th:text="${success}"></label>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    <div class="alert alert-danger alert-dismissible" th:if="${error!= null}">
+        <label th:text="${error}"></label>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    <div class="alert alert-warning alert-dismissible" th:if="${warning!= null}">
+        <label th:text="${warning}"></label>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    <div class="alert alert-info alert-dismissible" th:if="${info!= null}">
+        <label th:text="${info}"></label>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+</div>

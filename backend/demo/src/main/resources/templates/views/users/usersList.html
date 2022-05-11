@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/templates/template/template :: head">
+</head>
+<body>
+<header th:replace="/templates/template/template :: header"></header>
+
+
+    <div class="row">
+        <h1 th:text="${titulo}"></h1>
+        <ul class="list-group" th:each="event:${userEvents}">
+            <li class="list-group-item" th:text="${event.id}"></li>
+            <li class="list-group-item" th:text="${event.title}"></li>
+        </ul>
+
+    </div>
+</div>
+
+
+<footer th:replace="/templates/template/template :: footer"></footer>
+
+</body>
+</html>
+

@@ -1,0 +1,17 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="components/head :: head">
+  <meta charset="UTF-8">
+  <title>Template</title>
+</head>
+<body>
+<header th:replace="components/headerNavbar :: header_navbar"></header>
+<div th:replace="components/alerts :: alert"></div>
+<div class="container">
+  <form class="needs-validation"th:object="${user}" th:action="@{/users/save}" method="post">
+    <div th:insert="components/userForm:: user_form">
+    </div>
+  </form>
+</div>
+<footer th:replace="/template/template :: footer"></footer>
+</body>
+</html>

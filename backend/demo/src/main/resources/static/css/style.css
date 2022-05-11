@@ -1,0 +1,73 @@
+.carousel-inner .carousel-item {
+    transition: transform 1s ease;
+}
+
+.h1-carousel {
+    width: 100%;
+    text-align: center;
+    color: black;
+    background-color: rgba(255,255,255,0.5);
+    border-radius:15rem;
+    border: 5px solid lightgrey;
+    text-shadow: 1px 1px 2px rgba(2, 15, 19, 0.70);
+    font-family: 'Julius Sans One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 4vw;
+    transition: 0.4s;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 40%;
+    opacity: 1;
+    transition: 1s;
+}
+
+.carousel-caption.slide {
+    top: 0;
+    opacity: 1;
+}
+
+.caption-bottom {
+    position: relative;
+    bottom: 4vh;
+    opacity: 1;
+    transition: 1s;
+}
+
+.caption-bottom.slide {
+    bottom: -90vh;
+    opacity: 1;
+}
+.modal-body {
+    background-color: #5165ff;
+    border-color: #5165ff;
+}
+
+.intro-1 {
+    font-size: 20px
+}
+
+.close {
+    color: #fff
+}
+
+.close:hover {
+    color: #fff
+}
+
+.intro-2 {
+    font-size: 13px
+}
+
+.btn-primary {
+    color: #5165ff;
+    background-color: #fffaff;
+    border-color: #fffaff;
+    padding: 12px;
+    font-weight: 700;
+    border-radius: 41px;
+    padding-right: 20px;
+    padding-left: 20px;
+}

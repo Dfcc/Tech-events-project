@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="components/head :: head">
+    <meta charset="UTF-8">
+    <title>Events List</title>
+
+</head>
+<body>
+
+<header th:replace="components/headerNavbar :: header_navbar">
+    <h1 th:text ="${titulo}"></h1>
+</header>
+
+<div class="card-group">
+    <div class="card" th:each="ev:${eventos}">
+<!--        <ul>-->
+<!--            <li th:each="detail : ${item.details}">-->
+<!--                <a th:href="@{/pathvars/item/{itemId}/detail/{dtlId}(itemId = ${item.id}, dtlId = ${dtl.id})}">-->
+<!--                    <span th:text="${detail.description}"></span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--        </ul>-->
+    <a>
+        <h3  th:text="${ev.date}"></h3>
+        <img class="card-img-top" th:src="@{${ev.image}}" th:alt="${ev.title}">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${ev.title}"></h5>
+            <p class="card-text" th:text="${ev.description}"></p>
+            <p class="card-text" th:text="${ev.maxPeople}"></p>
+
+        </div>
+        </a>
+    </div>
+</div>
+
+<footer th:replace="/template/template :: footer"></footer>
+</body>
+</html>
