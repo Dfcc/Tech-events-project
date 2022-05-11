@@ -13,21 +13,26 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-    @Autowired
+   @Autowired
     UserDetailsService userDetailsService;
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
 
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService);
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-   .antMatchers("/views/events/list","/views/events/admin/create").hasRole("ADMIN")
+             .antMatchers("/views/events/list","/views/events/admin/create").hasRole("ADMIN")
              .antMatchers("/views/users").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/", "/index", "home").permitAll()
+                .antMatchers("/", "/index", "home","/users/create").permitAll()
                 .and()
                 .formLogin();
 //                 .antMatchers("/views/events/list").permitAll()
@@ -35,9 +40,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/views/users").permitAll()
 
     }
-
-    @Bean
-    public PasswordEncoder getPasswordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
-    }
 }
+
+//    @Bean
+//    public BCryptPasswordEncoder passwordEncoder(){
+//
+//        return new BCryptPasswordEncoder();
+//    }
+//    @Bean
+//    public DaoAuthenticationProvider authenticationProvider(){
+//        DaoAuthenticationProvider auth= new DaoAuthenticationProvider();
+//        auth.setUserDetailsService(iUsuarioService);
+//        auth.setPasswordEncoder(passwordEncoder());
+//        return auth;
+//    }
+
+
+
+
+
