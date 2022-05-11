@@ -111,7 +111,7 @@ public class Event implements Serializable {
                 ", description='" + description + '\'' +
                 ", image='" + image + '\'' +
                 ", maxPeople=" + max_people +
-                ", Date=" + date +
+                ", date=" + date +
                 ", featured="+
         '}';
     }
