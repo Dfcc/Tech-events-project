@@ -31,7 +31,7 @@
 
 .caption-bottom {
     position: relative;
-    bottom: 4vh;
+    bottom: 0vh;
     opacity: 1;
     transition: 1s;
 }

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class UserService implements IUserService {
-
+    @Autowired
     BCryptPasswordEncoder passwordEncoder;
     @Autowired
     private UserRepository userRepository;
@@ -23,6 +23,7 @@ public class UserService implements IUserService {
 
     @Override
     public void saveUser(User user) {
+
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
