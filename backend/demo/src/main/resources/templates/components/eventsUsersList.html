@@ -11,13 +11,14 @@
           <div th:each="eventsList:${userEvents}" class="col-xs-12 col-sm-4">
             <div class="card">
               <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                <img th:src="${eventsList.img}" />
+                <img th:src="${eventsList.image}" />
               </a>
+            </div>
               <div class="card-content">
                 <h4 class="card-title">
                   <a th:text="${eventsList.title}" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"></a>
                 </h4>
-
+                  <p th:text="${eventsList.id}" class="">
                 <p th:text="${eventsList.description}" class="">
                   Descripcion evento
                 </p>
@@ -27,13 +28,7 @@
                 <span>Apuntados:</span>
                 <span th:text="${eventsList.signed}" class="">
                   plaza</span>
-                <span>
-
-                                </span>
-                <span th:text="${eventsList.max_people}" class="">
-                                    plazas
-                                </span>
-              </div>
+               </div>
               <div class="card-read-more signup">
                 <a th:href="@{/users/userEventRemove/}+${eventsList.id}" class="btn btn-link btn-block">
                   Cancela tu suscripción

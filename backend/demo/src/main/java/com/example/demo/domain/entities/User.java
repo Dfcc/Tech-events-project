@@ -12,7 +12,7 @@ public class User {
     private Long id;
     private String username;
     private String password;
-    private boolean active;
+    private boolean active=true;
     private String roles ="ROLE_USER";
 
     private Boolean isAdmin=false;

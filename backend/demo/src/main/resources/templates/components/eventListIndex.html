@@ -1,4 +1,4 @@
-<div class="card-group" th:fragment="events_list_index">
+<div class="card-group" th:fragment="events_list_index" xmlns:sec="http://www.w3.org/1999/xhtml">
     <div class="card" th:each="ev:${list}">
 
         <!-- <p th:text="${#temporals.format(ev.date, 'dd-MMMM-yyyy', new java.util.Locale('en', 'EN'))}">
@@ -26,7 +26,12 @@
 <!--                </a>-->
 <!--            </div>-->
 
-        <a th:href="@{/users/userEventAdd/}+${ev.id}+${modal}" type="button" class="btn btn-primary launch" > <i class="fa fa-info"></i> Get information
+    <div>
+        <a sec:authorize="isAuthenticated()"th:href="@{/users/userEventAdd/}+${ev.id}" type="button" class="btn btn-primary launch" > <i class="fa fa-info"></i> Get Into Event
         </a>
+        <a sec:authorize="!isAuthenticated()"th:href="@{/users/create}" type="button" class="btn btn-primary launch" > <i class="fa fa-info"></i> Register in to Events
+        </a>
+    </div>
+
     </div>
 </div>

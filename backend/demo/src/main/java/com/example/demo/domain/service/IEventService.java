@@ -16,4 +16,6 @@ public interface IEventService {
     boolean existsById(Long eventId);
 
     void addUser(Event event, User user);
+
+    void removeUser(Event event, User user);
 }

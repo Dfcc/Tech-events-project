@@ -115,6 +115,10 @@ public class Event implements Serializable {
         this.users.add(user);
         user.getEvents().add(this);
     }
+    public void removeUsers(User user) {
+        this.users.remove(user);
+        user.getEvents().remove(this);
+    }
 
     /*public void removeUsers(User user) {
 

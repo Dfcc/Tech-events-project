@@ -47,10 +47,9 @@ public class UserController {
     public String allUsers(Model model,Authentication auth){
         String username = auth.getName();
         User user = userService.findByUsername(username);
-        List <User> usersList = userService.usersList();
+        List <Event> usersEventsList = eventService.eventList();
         model.addAttribute("titulo", "Pagina Home de Usuario");
-        model.addAttribute("users", usersList);
-        model.addAttribute("userEvents", user);
+        model.addAttribute("userEvents", usersEventsList);
         return "/views/users/userHome";
     }
     @GetMapping("/userEventAdd/{id}")
@@ -68,22 +67,28 @@ public class UserController {
         User loggedInUser = userService.findByUsername(username);
 
         eventService.addUser(event, loggedInUser);
-
-
-
-//        if (user.contains(event)){
-//            System.out.println("Evento duplicado!");
-//        }
-//        else{
-            /*event.setSigned(event.getSigned()+1);
-            eventRepository.save(event);
-            System.out.println("apuntado al evento " + event.getSigned());
-            user.getEvents().add(event);
-            userRepository.save(user);*/
-//        }
-
-        return "redirect:/users/home";
+        event.setSigned(event.getSigned()+1);
+        eventService.save(event);
+        System.out.println("apuntado al evento " + event.getSigned());
+        loggedInUser.getEvents().add(event);
+        userService.saveUser(loggedInUser);
+         return "redirect:/users/home";
     }
+    @GetMapping("/userEventRemove/{id}")
+    public String userEventRemove(Authentication auth, @PathVariable("id") Long idEvent){
+      Event event = eventService.findById(idEvent);
+
+      String username = auth.getName();
+        User loggedInUser = userService.findByUsername(username);
+
+        eventService.removeUser(event, loggedInUser);
+        event.setSigned(event.getSigned()-1);
+        eventService.save(event);
+        System.out.println("desapuntado al evento " + event.getSigned());
+        loggedInUser.getEvents().remove(event);
+        userService.saveUser(loggedInUser);
+        return "redirect:/users/home";
+}
     @GetMapping("/create")
     public String formCreate(Model model) {
         User user = new User();
