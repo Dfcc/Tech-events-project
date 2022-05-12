@@ -1,16 +1,19 @@
 package com.example.demo.domain.service;
 
 import com.example.demo.domain.entities.Event;
+import com.example.demo.domain.entities.User;
 
 import java.util.List;
 
 public interface IEventService {
-    public List<Event> eventList();
+    List<Event> eventList();
 
 
-    public void save(Event event);
-    public Event findById(Long id);
-    public Event delete(Long id);
+    void save(Event event);
+    Event findById(Long id);
+    Event delete(Long id);
 
     boolean existsById(Long eventId);
+
+    void addUser(Event event, User user);
 }

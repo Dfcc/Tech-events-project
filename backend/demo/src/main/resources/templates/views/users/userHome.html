@@ -12,9 +12,9 @@
 </header>
 
 <div class="card-group">
-    <div class="card" th:each="ev:${userEvents}">
+    <div class="card" th:each="ev:${user}">
 
-        <h3 th:text="${ev.date}"></h3>
+
         <img class="card-img-top" th:src="@{${ev.image}}" th:alt="${ev.title}">
         <div class="card-body">
             <h5 class="card-title" th:text="${ev.title}"></h5>

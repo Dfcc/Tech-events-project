@@ -44,30 +44,42 @@ public class UserController {
 
 
     @GetMapping("/home")
-    public String allUsers(Model model,@PathVariable(value = "eventId") Long eventId){
-        List <User> eventsUserList = userRepository.findUsersByEventsId(eventId);
+    public String allUsers(Model model,Authentication auth){
+        String username = auth.getName();
+        User user = userService.findByUsername(username);
         List <User> usersList = userService.usersList();
         model.addAttribute("titulo", "Pagina Home de Usuario");
         model.addAttribute("users", usersList);
-        model.addAttribute("userEvents", eventsUserList);
-        return "/views/users/usersList";
+        model.addAttribute("userEvents", user);
+        return "/views/users/userHome";
     }
     @GetMapping("/userEventAdd/{id}")
     public String userEventAdd(Authentication auth, @PathVariable("id") Long idEvent){
+        // Definir la relación many to many en las entidades
+        // Crear un methodo para añadir usuarios a la lista de un evento
+        // En UserService crear el methodo para añadir un usuario en la tabla pivot en la BD
+        // Llamar al servicio en el controlador
+
+        // Buscar el evento
         Event event = eventService.findById(idEvent);
 
+        // Obtener el usuario logeado
         String username = auth.getName();
-         User user = userService.findByUsername(username);
+        User loggedInUser = userService.findByUsername(username);
+
+        eventService.addUser(event, loggedInUser);
+
+
 
 //        if (user.contains(event)){
 //            System.out.println("Evento duplicado!");
 //        }
 //        else{
-            event.setSigned(event.getSigned()+1);
+            /*event.setSigned(event.getSigned()+1);
             eventRepository.save(event);
             System.out.println("apuntado al evento " + event.getSigned());
             user.getEvents().add(event);
-            userRepository.save(user);
+            userRepository.save(user);*/
 //        }
 
         return "redirect:/users/home";

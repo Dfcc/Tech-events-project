@@ -1,6 +1,7 @@
 package com.example.demo.domain.service;
 
 import com.example.demo.domain.entities.Event;
+import com.example.demo.domain.entities.User;
 import com.example.demo.repositories.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,5 +39,11 @@ public class EventServiceImpl implements IEventService {
     @Override
     public boolean existsById(Long eventId) {
         return false;
+    }
+
+    @Override
+    public void addUser(Event event, User loggedInUser) {
+        event.addUsers(loggedInUser);
+        eventRepository.save(event);
     }
 }

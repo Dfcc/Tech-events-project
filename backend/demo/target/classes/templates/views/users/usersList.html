@@ -9,7 +9,7 @@
     <div class="row">
         <h1 th:text="${titulo}"></h1>
         <ul class="list-group" th:each="event:${userEvents}">
-            <li class="list-group-item" th:text="${event.id}"></li>
+            <li class="list-group-item" th:text="${event.id==eventId}"></li>
             <li class="list-group-item" th:text="${event.title}"></li>
         </ul>
 

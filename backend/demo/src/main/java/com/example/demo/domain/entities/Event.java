@@ -110,5 +110,14 @@ public class Event implements Serializable {
                 '}';
     }
 
+    public void addUsers(User user) {
+        this.users.add(user);
+        user.getEvents().add(this);
+    }
+
+    /*public void removeUsers(User user) {
+
+    }*/
+
 
 }
