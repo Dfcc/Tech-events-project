@@ -3,10 +3,6 @@
         <a class="navbar-brand" href="#">
             <img th:src="@{/images/logo.png}" alt="" width="120" height="96">
         </a>
-        <a class="navbar-brand" th:href="@{/logout}">
-            <h6>logout</h6>
-        </a>
-
 
         <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -24,11 +20,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active text-white" th:href="@{/users/create}"aria-current="page" href="#">Registrarse</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link text-white" th:href="@{/views/events/admin/create}">hola User</a>
-                </li>
             </ul>
             <ul class="navbar-nav nav-bar-right">
                 <li sec:authorize="!isAuthenticated()">
