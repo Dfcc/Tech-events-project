@@ -1,6 +1,12 @@
 .carousel-inner .carousel-item {
     transition: transform 1s ease;
 }
+#image-slide{
+    width:100%;
+    height: 29vh;
+    overflow: hidden;
+    background-color: transparent;
+}
 
 .h1-carousel {
     width: 100%;
@@ -19,7 +25,7 @@
 
 .carousel-caption {
     position: absolute;
-    top: 40%;
+    top: 15%;
     opacity: 1;
     transition: 1s;
 }
@@ -37,7 +43,7 @@
 }
 
 .caption-bottom.slide {
-    bottom: -90vh;
+    bottom: -95vh;
     opacity: 1;
 }
 .modal-body {

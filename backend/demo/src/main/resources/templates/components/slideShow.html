@@ -17,7 +17,9 @@
                     <div class="carousel-inner">
                         <div class="carousel-item" data-bs-interval="3000" th:each="slide: ${slider}"
                              th:classappend="${slideStat.first} ? active : ''">
+                            <div id="image-slide">
                             <img th:src="${slide.image}" class="img-carousel d-block w-100" alt="">
+                            </div>
                             <div class="carousel-caption">
                                 <h1>TOP EVENTS</h1>
                                 <div class="sliderData">
