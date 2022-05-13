@@ -55,4 +55,4 @@ Cuando un evento esté lleno (máximo número de participantes) nadie podrá reg
 # Greetings :gift:
 - Comment your friends and colleagues about this project. :loudspeaker:
 - Thank the team. :slightly_smiling_face:
-- Invite the team for a beer. :beer:
+- Invite the team for a beer. :beer: or a coffe :coffee: or a wine :wine_glass: or something
