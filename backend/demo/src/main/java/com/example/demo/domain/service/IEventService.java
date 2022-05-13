@@ -8,6 +8,8 @@ import java.util.List;
 public interface IEventService {
     List<Event> eventList();
 
+   List<Event> eventListUser(Long loggedInUser);
+
 
     void save(Event event);
     Event findById(Long id);

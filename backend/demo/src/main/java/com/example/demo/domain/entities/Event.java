@@ -30,7 +30,7 @@ public class Event implements Serializable {
     @JoinTable(name = "events_user",
             joinColumns = { @JoinColumn(name = "event_id") },
             inverseJoinColumns = { @JoinColumn(name = "user_id") })
-    private Set<User> users = new HashSet<>();
+           private Set<User> users = new HashSet<>();
 
 
 
@@ -119,6 +119,8 @@ public class Event implements Serializable {
         this.users.remove(user);
         user.getEvents().remove(this);
     }
+
+
 
     /*public void removeUsers(User user) {
 

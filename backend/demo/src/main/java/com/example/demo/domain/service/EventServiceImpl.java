@@ -51,4 +51,9 @@ public class EventServiceImpl implements IEventService {
         event.removeUsers(loggedInUser);
         eventRepository.delete(event);
     }
+    @Override
+    public List<Event> eventListUser (Long loggedInUser) {
+       return eventRepository.findEventsByUsersId(loggedInUser);
+    }
+   
 }

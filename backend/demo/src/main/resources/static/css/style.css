@@ -7,6 +7,9 @@
     overflow: hidden;
     background-color: transparent;
 }
+#slider_fluid{
+    height:35vh;
+}
 
 .h1-carousel {
     width: 100%;
@@ -77,3 +80,17 @@
     padding-right: 20px;
     padding-left: 20px;
 }
+@media screen and (min-width: 1400px) {
+    #image-slide {
+        height: 79vh;
+        transition: 0.2s;
+    }
+    .container {
+        width: 1370px;
+    }
+    #slider_fluid{
+        height:62vh;
+        transition: 0.2s;
+    }
+}
+

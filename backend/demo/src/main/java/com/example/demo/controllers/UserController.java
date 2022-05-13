@@ -35,19 +35,15 @@ public class UserController {
     private IEventService eventService;
     @Autowired
     private IUserService userService;
-    @Autowired
-    private UserRepository userRepository;
 
-    @Autowired
-    private EventRepository eventRepository;
 
 
 
     @GetMapping("/home")
-    public String allUsers(Model model,Authentication auth){
+    public String allUsers(Model model,Authentication auth,Long loggedInUser){
         String username = auth.getName();
         User user = userService.findByUsername(username);
-        List <Event> usersEventsList = eventService.eventList();
+        List <Event> usersEventsList = eventService.eventListUser(loggedInUser);
         model.addAttribute("titulo", "Pagina Home de Usuario");
         model.addAttribute("userEvents", usersEventsList);
         return "/views/users/userHome";

@@ -10,14 +10,12 @@
 </head>
 <body>
 
-<header th:replace="components/headerNavbar :: header_navbar">
-    <div>
-        User: <span sec:authentication="name">NOT FOUND</span>
-        Spring Roles: <span sec:authentication="principal.authorities">NOT FOUND</span>
-    </div>
-    <h1 th:text="${titulo}"></h1>
-</header>
-
+<header th:replace="components/headerNavbar :: header_navbar"></header>
+<div>
+    User: <span sec:authentication="name">NOT FOUND</span>
+    Spring Roles: <span sec:authentication="principal.authorities">NOT FOUND</span>
+</div>
+<h1 th:text="${titulo}"></h1>
 <div  th:replace="components/eventsUsersList :: user_events_list"class="card-group">
 
 </div>
