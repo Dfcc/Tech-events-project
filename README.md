@@ -41,9 +41,9 @@ Cuando un evento esté lleno (máximo número de participantes) nadie podrá reg
 
 # ScreenShoots :camera:
 
-![Screenshot](images/desktop.PNG)
+![Screenshot](desktop.PNG)
 
-![Screenshot](images/mobile.PNG)
+![Screenshot](mobile.PNG)
 
 
 # Authors ✒️
