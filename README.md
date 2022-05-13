@@ -22,7 +22,7 @@ Users will be able to see on one page the list of events to which they are regis
 
 The administrator will be able to CRUD the events.
 
-Cuando un evento esté lleno (máximo número de participantes) nadie podrá registrarse.
+When an event is full (maximum number of participants) no one will be able to register.
 
 # Tools :hammer:
 - Git / Github
