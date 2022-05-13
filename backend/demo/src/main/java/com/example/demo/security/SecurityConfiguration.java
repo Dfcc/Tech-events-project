@@ -34,7 +34,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
              .antMatchers("/views/users").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/", "/index", "home","/users/create").permitAll()
                 .and()
-                .formLogin();
+                .formLogin()
+                .and()
+                .exceptionHandling().accessDeniedPage("/accessDenied.jsp");;
 //                 .antMatchers("/views/events/list").permitAll()
 //                .antMatchers("/views/events/admin/create").permitAll()
 //                .antMatchers("/views/users").permitAll()
