@@ -21,6 +21,7 @@ public class Event implements Serializable {
 
     private int signed;
     private String Date;
+    private boolean featured;
 
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {
@@ -33,6 +34,13 @@ public class Event implements Serializable {
     private Set<User> users = new HashSet<>();
 
 
+    public boolean isFeatured() {
+        return featured;
+    }
+
+    public void setFeatured(boolean featured) {
+        this.featured = featured;
+    }
 
 
     public Set<User> getUsers() {
@@ -108,6 +116,7 @@ public class Event implements Serializable {
                 ", image='" + image + '\'' +
                 ", max_people=" + max_people +
                 ", Date=" + Date +
+                ", featured="+
                 '}';
     }
 

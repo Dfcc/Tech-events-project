@@ -11,7 +11,33 @@
             <h5 class="card-title" th:text="${ev.title}"></h5>
             <p class="card-text" th:text="${ev.description}"></p>
             <p class="card-text" th:text="${ev.maxPeople}"></p>
+            <div class="card-text" th:text="${ev.featured} ? 'Destacado' : 'NO Destacado'"></div>
            </div>
+
+        <!-- events pagination -->
+        <nav aria-label="Pagination" th:if="${events.totalPages gt 0}">
+            <ul class="pagination justify-content-center font-weight-bold">
+                <li class="page-item" th:classappend="${events.number eq 0} ? 'disabled'">
+                    <a class="page-link"
+                       th:href="@{/?page={id}(id=${events.number lt 2 ? 1 : events.number})}"
+                       aria-label="Previous" title="Previous Page" data-toggle="tooltip">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item" th:classappend="${i eq events.number + 1} ? 'active'"
+                    th:each="i : ${#numbers.sequence( 1, events.totalPages, 1)}">
+                    <a class="page-link" th:href="@{/?page={id}(id=${i})}" th:text="${i}"
+                       th:title="${'Page '+ i}" data-toggle="tooltip"></a>
+                </li>
+                <li class="page-item" th:classappend="${events.number + 1 eq events.totalPages} ? 'disabled'">
+                    <a class="page-link"
+                       th:href="@{/?page={id}(id=${events.number + 2})}"
+                       aria-label="Next" title="Next Page" data-toggle="tooltip">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
 <!--            <div class="card-read-more signup">-->
 <!--                &lt;!&ndash;-->
 <!--                <a th:href="@{/views/users/userEventAdd/}+${eventsList.id}" class="btn btn-link btn-block">-->

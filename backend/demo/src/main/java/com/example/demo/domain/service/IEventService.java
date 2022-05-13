@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface IEventService {
     List<Event> eventList();
-
+    public List<Event> listHighlights();
 
     void save(Event event);
     Event findById(Long id);
