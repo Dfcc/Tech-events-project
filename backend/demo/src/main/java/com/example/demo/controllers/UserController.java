@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.validation.Valid;
 import java.util.Optional;
+import java.util.Set;
 
 @Controller
 
@@ -43,7 +44,8 @@ public class UserController {
     public String allUsers(Model model,Authentication auth,Long loggedInUser){
         String username = auth.getName();
         User user = userService.findByUsername(username);
-        List <Event> usersEventsList = eventService.eventListUser(loggedInUser);
+        Set<Event> usersEventsList = user.getEvents();
+        System.out.println(usersEventsList);
         model.addAttribute("titulo", "Pagina Home de Usuario");
         model.addAttribute("userEvents", usersEventsList);
         return "/views/users/userHome";
