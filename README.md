@@ -41,6 +41,11 @@ Cuando un evento esté lleno (máximo número de participantes) nadie podrá reg
 
 # ScreenShoots :camera:
 
+![Screenshot](desktop.PNG)
+
+![Screenshot](mobile.PNG)
+
+
 # Authors ✒️
 - Miguel Ángel Íñiguez Pérez - https://github.com/maip202
 - Beatriz Robledillo Gómez - https://github.com/BeitxuelaWEB
