@@ -1,5 +1,5 @@
 <div class="card-group" th:fragment="events_list_index" xmlns:sec="http://www.w3.org/1999/xhtml">
-    <div class="card" th:each="ev:${list}">
+    <div class="card home-card" th:each="ev:${list}">
 
         <!-- <p th:text="${#temporals.format(ev.date, 'dd-MMMM-yyyy', new java.util.Locale('en', 'EN'))}">
          <p th:text="${#temporals.format(ev.date, 'dd-MMMM-yyyy', new java.util.Locale('es', 'ES'))}">
