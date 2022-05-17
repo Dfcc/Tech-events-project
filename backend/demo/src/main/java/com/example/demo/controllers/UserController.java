@@ -66,6 +66,7 @@ public class UserController {
 
         eventService.addUser(event, loggedInUser);
         event.setSigned(event.getSigned()+1);
+        event.setMaxPeople(event.getMaxPeople()-1);
         eventService.save(event);
         System.out.println("apuntado al evento " + event.getSigned());
         loggedInUser.getEvents().add(event);
