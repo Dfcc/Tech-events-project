@@ -64,13 +64,21 @@ public class UserController {
         String username = auth.getName();
         User loggedInUser = userService.findByUsername(username);
 
+        //Statement if event is full
+
+        if (event.getMaxPeople() == 0) return "redirect:/home";
+
         eventService.addUser(event, loggedInUser);
+        if (loggedInUser.getEvents().contains(event)){
+            System.out.println("Duplicated Event!");
+        }else {
         event.setSigned(event.getSigned()+1);
         event.setMaxPeople(event.getMaxPeople()-1);
         eventService.save(event);
         System.out.println("apuntado al evento " + event.getSigned());
         loggedInUser.getEvents().add(event);
         userService.saveUser(loggedInUser);
+        }
          return "redirect:/users/home";
     }
     @GetMapping("/userEventRemove/{id}")
@@ -82,6 +90,7 @@ public class UserController {
 
         eventService.removeUser(event, loggedInUser);
         event.setSigned(event.getSigned()-1);
+        event.setMaxPeople(event.getMaxPeople()+1);
         eventService.save(event);
         System.out.println("desapuntado al evento " + event.getSigned());
         loggedInUser.getEvents().remove(event);

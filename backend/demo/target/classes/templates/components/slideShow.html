@@ -18,7 +18,7 @@
                         <div class="carousel-item" data-bs-interval="3000" th:each="slide: ${slider}"
                              th:classappend="${slideStat.first} ? active : ''">
                             <div id="image-slide">
-                            <img th:src="${slide.image}" class="img-carousel d-block w-100" alt="">
+                                <a th:href="@{/home/}+${slide.id}"> <img th:src="${slide.image}" class="img-carousel d-block w-100" alt=""></a>
                             </div>
                             <div class="carousel-caption">
                                 <h1>TOP EVENTS</h1>
@@ -51,7 +51,9 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
+                </div>
             </section>
+
         </div>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
                 integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
@@ -62,3 +64,5 @@
         <script src="https://code.jquery.com/jquery-3.6.0.js"
                 integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+    </div>
+</div>

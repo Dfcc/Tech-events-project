@@ -69,6 +69,12 @@
 .intro-2 {
     font-size: 13px
 }
+.open{
+    color: white;
+}
+.closed{
+    color: purple;
+}
 
 .btn-primary {
     color: #5165ff;

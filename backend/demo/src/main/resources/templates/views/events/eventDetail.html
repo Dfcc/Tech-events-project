@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/template/template :: head">
+    <title>Detail_page</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/img/favicon.ico}"/>
+</head>
+<body>
+
+<header th:replace="components/headerNavbar :: header_navbar">
+    <h1 th:text ="${titulo}"></h1>
+</header>
+
+<div class="card-group">
+    <div class="card home-card">
+        <h3  th:text="${eventDetail.date}"></h3>
+        <img class="card-img-top" th:src="@{${eventDetail.image}}" th:alt="${eventDetail.title}">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${eventDetail.title}"></h5>
+            <p class="card-text" th:text="${eventDetail.description}"></p>
+            <p href="" class="card-text" th:text="${eventDetail.maxPeople}" th:classappend="${eventDetail.maxPeople==0} ? open : closed"> </p>
+
+</div>
+
+</div>
+</div>
+
+<footer th:replace="/components/footer :: footer"></footer>
+<script src="/static/js/app.js" th:src="@{/js/app.js}"></script>
+<script src="/static/js/bootstrap-min.js" th:src="@{/js/bootstrap-min.js}"></script>
+<script src="/static/js/popper-min.js" th:src="@{/js/popper-min.js}"></script>
+</body>
+</html>
