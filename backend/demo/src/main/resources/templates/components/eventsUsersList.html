@@ -1,6 +1,6 @@
 <section th:fragment="user_events_list" class="wrapper">
-  <div class="container-fostrap p-0">
-    <div>
+  <div class="card-group">
+    <div class="card home-card">
       <h2 class="heading display-6">
         Your Events
       </h2>
@@ -10,9 +10,9 @@
         <div class="row">
           <div th:each="eventsList:${userEvents}" class="col-xs-12 col-sm-4">
             <div class="card">
-              <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                <img th:src="${eventsList.image}" />
-              </a>
+              <img class="card-img-top" th:src="${eventsList.image}" th:alt="${eventsList.title}"/>
+
+
             </div>
               <div class="card-content">
                 <h4 class="card-title">

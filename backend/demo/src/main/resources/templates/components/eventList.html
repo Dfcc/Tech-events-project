@@ -1,5 +1,5 @@
 <div class="card-group" th:fragment="events_list">
-    <div class="card" th:each="ev:${list}">
+    <div class="card home-card" th:each="ev:${list}">
         <button>
             <a class="btn btn-success btn-sm" th:href="@{/views/events/admin/edit/} + ${ev.id} " title="Edit Event">
                 <i class="bi bi-pencil-square"></i>

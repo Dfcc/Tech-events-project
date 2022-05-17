@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:insert="components/head :: head">
-    <meta charset="UTF-8">
-    <title>Events List</title>
-
+<head th:replace="/template/template :: head">
+    <link rel="icon" type="image/x-icon" th:href="@{/img/favicon.ico}"/>
 </head>
 <body>
 
@@ -12,7 +10,15 @@
 </header>
 
 <div class="card-group">
-    <div class="card" th:each="ev:${eventos}">
+    <div class="card home-card" th:each="ev:${eventos}">
+     <h3  th:text="${ev.date}"></h3>
+        <img class="card-img-top" th:src="@{${ev.image}}" th:alt="${ev.title}">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${ev.title}"></h5>
+            <p class="card-text" th:text="${ev.description}"></p>
+            <p class="card-text" th:text="${ev.maxPeople}"></p>
+
+        </div>
         <button>
             <a class="btn btn-success btn-sm" th:href="@{/views/events/admin/edit/} + ${ev.id} " title="Edit Event">
                 <i class="bi bi-pencil-square"></i>
@@ -24,22 +30,12 @@
             </a>
         </button>
 
-       <!-- <p th:text="${#temporals.format(ev.date, 'dd-MMMM-yyyy', new java.util.Locale('en', 'EN'))}">
-        <p th:text="${#temporals.format(ev.date, 'dd-MMMM-yyyy', new java.util.Locale('es', 'ES'))}">
-        <p th:text="${#temporals.format(localDateTime, 'dd-MMMM-yyyy', new java.util.Locale('fr', 'FR'))}">
-        -->
-        <h3  th:text="${ev.date}"></h3>
-        <img class="card-img-top" th:src="@{${ev.image}}" th:alt="${ev.title}">
-        <div class="card-body">
-            <h5 class="card-title" th:text="${ev.title}"></h5>
-            <p class="card-text" th:text="${ev.description}"></p>
-            <p class="card-text" th:text="${ev.maxPeople}"></p>
-
+    </div>
         </div>
 
-        </div>
-        </div>
-
-<footer th:replace="/template/template :: footer"></footer>
+<footer th:replace="/components/footer :: footer"></footer>
+<script src="/static/js/app.js" th:src="@{/js/app.js}"></script>
+<script src="/static/js/bootstrap-min.js" th:src="@{/js/bootstrap-min.js}"></script>
+<script src="/static/js/popper-min.js" th:src="@{/js/popper-min.js}"></script>
 </body>
 </html>
